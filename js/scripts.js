@@ -16,12 +16,11 @@ Order.prototype.calculateTotalPrice = function() {
 }
 
 Pizza.prototype.appendStringFormat = function(size) {
-
   var orderStr = "<ul>"
   for (var i = 0; i< this.toppings.length; i++){
     orderStr = orderStr + "<li>" +this.toppings[i] + "</li>"
   }
-return '<div class="panel panel-default">' +
+  return '<div class="panel panel-default">' +
           '<div class="panel-heading"><span class="clickable">'+ size + ' Pizza $' + this.price + '</span>' +
           '</div>'+
           '<div class="panel-body">' + orderStr +
@@ -43,13 +42,13 @@ $(document).ready(function() {
       var toppingPrice = parseFloat(this.value);
       currentPizza.toppings.push(this.name);
       currentPizza.addToPrice(toppingPrice);
+      $(this).prop('checked', false);
     })
     var sizePrice = parseInt(($('#size-select').find(":selected").val()));
     currentPizza.addToPrice(sizePrice);
     var sizeString = $('#size-select').find(":selected").text();
     myOrder.numberOfPizzas.push(currentPizza);
     myOrder.calculateTotalPrice();
-    alert(currentPizza.price);
     $(".order-stream").append(currentPizza.appendStringFormat(sizeString));
     $("#total-price").text(myOrder.totalPrice);
     $("#order-container").show();
@@ -59,8 +58,6 @@ $(document).ready(function() {
     $("#order-selection").hide();
     $("#order-confirmation").show();
   });
-
-
 });
 
 $(document).on('click','.panel-heading', function () {
