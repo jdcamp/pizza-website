@@ -11,9 +11,10 @@
 
 <body>
   <div class="header">
-    <h1>The 234th Best Pizza Place in the General Area</h1>
+    <h3>The 234th Best Pizza Place in the General Area</h3>
+    <img src="http://res.freestockphotos.biz/pictures/16/16529-illustration-of-a-slice-of-pizza-with-toppings-pv.png" alt="Logo">
   </div>
-  <div class="row">
+  <div class="row" id="order-selection">
     <div class="col-sm-8">
       <div class="container">
         <div class="size">
@@ -56,8 +57,11 @@
 
     </div>
     <div class="col-sm-4">
-
       <div class="container-fluid" id="order-container">
+        <div class="order-total">
+          <h5>Order Total $<span id="total-price"></span></h5>
+          <button type="button" name="submit-order" id="submit-order">Submit Order</button>
+        </div>
         <div class="order-stream">
 
 
@@ -65,6 +69,20 @@
       </div>
 
     </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div class="container" id="order-confirmation">
+    <h3>Thanks for Ordering with us</h3>
+
   </div>
 </body>
 

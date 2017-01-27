@@ -5,7 +5,9 @@
 }
 
 #order-container {
-  float: left;
+  border: 2px solid black;
+  display: none;
+  padding-bottom: 15px;
 }
 
 .clickable:hover {
@@ -19,7 +21,14 @@
   ;
 }
 
-.panel-heading {
-  color: red;
-  background-color: red;
+.panel {
+  margin: 0px;
+}
+
+img {
+  height: 25px;
+}
+
+#order-confirmation {
+  display: none;
 }

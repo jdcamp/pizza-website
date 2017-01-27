@@ -1,7 +1,6 @@
 var Pizza = function() {
-  this.price = 2;
+  this.price = 0;
   this.toppings = [];
-  this.size = "";
 }
 
 var Order = function() {
@@ -23,7 +22,7 @@ Pizza.prototype.appendStringFormat = function(size) {
     orderStr = orderStr + "<li>" +this.toppings[i] + "</li>"
   }
 return '<div class="panel panel-default">' +
-          '<div class="panel-heading"><span class="clickable">'+ size + ' Pizza ' + this.price + '</span>' +
+          '<div class="panel-heading"><span class="clickable">'+ size + ' Pizza $' + this.price + '</span>' +
           '</div>'+
           '<div class="panel-body">' + orderStr +
           '</ul>' +
@@ -52,25 +51,18 @@ $(document).ready(function() {
     myOrder.calculateTotalPrice();
     alert(currentPizza.price);
     $(".order-stream").append(currentPizza.appendStringFormat(sizeString));
-    alert(myOrder.totalPrice);
+    $("#total-price").text(myOrder.totalPrice);
+    $("#order-container").show();
+
   })
-})
+  $("#submit-order").click(function() {
+    $("#order-selection").hide();
+    $("#order-confirmation").show();
+  });
+
+
+});
 
 $(document).on('click','.panel-heading', function () {
-
   $(this).next('.panel-body').toggle();
 })
-
-
-
-
-
-// var p1 = new Pizza();
-// var p2 = new Pizza();
-//
-// var o2 = new Order();
-//
-// o2.numberOfPizzas.push(p1);
-// o2.numberOfPizzas.push(p2);
-//
-// alert(o2.calculateTotalPrice());
