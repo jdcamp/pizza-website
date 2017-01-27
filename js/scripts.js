@@ -20,6 +20,9 @@ Pizza.prototype.appendStringFormat = function(size) {
   for (var i = 0; i< this.toppings.length; i++){
     orderStr = orderStr + "<li>" +this.toppings[i] + "</li>"
   }
+  if(this.toppings.length === 0) {
+    orderStr = "<li>Plain Cheese</li>"
+  }
   return '<div class="panel panel-default">' +
           '<div class="panel-heading"><span class="clickable">'+ size + ' Pizza $' + this.price + '</span>' +
           '</div>'+
