@@ -1,0 +1,19 @@
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: lightgreen;
+}
+
+#order-container {
+  float: left;
+}
+
+.clickable:hover {
+  color: #3366BB;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.panel-body {
+  display: none;
+}
