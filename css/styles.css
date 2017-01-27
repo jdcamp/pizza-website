@@ -16,4 +16,10 @@
 
 .panel-body {
   display: none;
+  ;
+}
+
+.panel-heading {
+  color: red;
+  background-color: red;
 }

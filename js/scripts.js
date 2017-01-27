@@ -16,18 +16,18 @@ Order.prototype.calculateTotalPrice = function() {
   this.totalPrice = orderPrice;
 }
 
-Pizza.prototype.writeToHtml = function() {
+Pizza.prototype.appendStringFormat = function(size) {
 
   var orderStr = "<ul>"
   for (var i = 0; i< this.toppings.length; i++){
     orderStr = orderStr + "<li>" +this.toppings[i] + "</li>"
   }
 return '<div class="panel panel-default">' +
-        '<div class="panel-heading"><span class="clickable">SIZE OF THE PIZZA GOES HERE</span></div>'+
-        '<div class="panel-body">' +
-        orderStr +
-        '</ul>' +
-        '</div>'+
+          '<div class="panel-heading"><span class="clickable">'+ size + ' Pizza ' + this.price + '</span>' +
+          '</div>'+
+          '<div class="panel-body">' + orderStr +
+          '</ul>' +
+          '</div>'+
         '</div>'
       }
 
@@ -37,7 +37,7 @@ Pizza.prototype.addToPrice = function(price) {
 
 var myOrder = new Order();
 
-$(function() {
+$(document).ready(function() {
   $("#add-pizza").click(function() {
     var currentPizza = new Pizza();
     $('.selected-toppings:checkbox:checked').each(function() {
@@ -45,19 +45,21 @@ $(function() {
       currentPizza.toppings.push(this.name);
       currentPizza.addToPrice(toppingPrice);
     })
+    var sizePrice = parseInt(($('#size-select').find(":selected").val()));
+    currentPizza.addToPrice(sizePrice);
+    var sizeString = $('#size-select').find(":selected").text();
     myOrder.numberOfPizzas.push(currentPizza);
     myOrder.calculateTotalPrice();
     alert(currentPizza.price);
-    $(".order-stream").append(currentPizza.writeToHtml());
+    $(".order-stream").append(currentPizza.appendStringFormat(sizeString));
     alert(myOrder.totalPrice);
   })
-
 })
 
-$(".panel-heading").click(function() {
-  $(this).siblings('.panel-body').toggle();
-})
+$(document).on('click','.panel-heading', function () {
 
+  $(this).next('.panel-body').toggle();
+})
 
 
 
