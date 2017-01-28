@@ -1,9 +1,13 @@
 .header {
-  width: 100%;
-  height: 100px;
   background-color: lightgreen;
   margin: 0;
   border: 3px solid lightgreen;
+  font-family: 'Rubik', sans-serif;
+  font-style: italic;
+}
+
+#order-selection {
+  width: 100%;
 }
 
 #order-container {
@@ -20,7 +24,6 @@
 
 .panel-body {
   display: none;
-  ;
 }
 
 .panel {

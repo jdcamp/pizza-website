@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|Rubik" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,70 +12,70 @@
 
 <body>
   <div class="wrapper">
-
-  <div class="header">
-    <h3>The 234th Best Pizza Place in the General Area</h3>
-    <img src="http://res.freestockphotos.biz/pictures/16/16529-illustration-of-a-slice-of-pizza-with-toppings-pv.png" alt="Logo">
-  </div>
-  <div class="row" id="order-selection">
-    <div class="col-sm-8">
-      <div class="container">
-        <div class="size">
-          <h3>Select Size</h3>
-          <select id="size-select">
+    <div class="header">
+      <h3>EatzaSumPizza</h3>
+      <img src="http://res.freestockphotos.biz/pictures/16/16529-illustration-of-a-slice-of-pizza-with-toppings-pv.png" alt="Logo">
+    </div>
+    <div class="row" id="order-selection">
+      <div class="col-sm-8">
+        <div class="container">
+          <div class="size">
+            <h3>Select Size</h3>
+            <select id="size-select">
             <option value="9">Small</option>
             <option value="11">Medium</option>
             <option value="13">Large</option>
             <option value="18">Xtra Large</option>
           </select>
+          </div>
+          <div class="form-group">
+            <h3>Select Toppings</h3>
+            <form>
+              <div class="row">
+                <div class="col-xs-3">
+                  <input class="selected-toppings" type="checkbox" name="Fancy Cheese" value="1">Fancy Cheese<br>
+                  <input class="selected-toppings" type="checkbox" name="Pepperoni" value="1.75">Pepperoni<br>
+                  <input class="selected-toppings" type="checkbox" name="Sausage" value="1.5">Sausage<br>
+                  <input class="selected-toppings" type="checkbox" name="Ham" value="1.5">Ham<br>
+                  <input class="selected-toppings" type="checkbox" name="Chicken" value="2">Chicken<br>
+                  <input class="selected-toppings" type="checkbox" name="Steak" value="2.25">Steak<br>
+                  <input class="selected-toppings" type="checkbox" name="Anchovies" value="2">Anchovies<br>
+                </div>
+                <div class="col-xs-3">
+                  <input class="selected-toppings" type="checkbox" name="Olives" value="1">Olives<br>
+                  <input class="selected-toppings" type="checkbox" name="Tomatoes" value="1.25">Tomatoes<br>
+                  <input class="selected-toppings" type="checkbox" name="Bell Peppers" value="2">Bell Peppers<br>
+                  <input class="selected-toppings" type="checkbox" name="Mushrooms" value="2">Mushrooms<br>
+                  <input class="selected-toppings" type="checkbox" name="Spinach" value="1">Spinach<br>
+                  <input class="selected-toppings" type="checkbox" name="Pineapples" value="2">Pineapples<br>
+                  <input class="selected-toppings" type="checkbox" name="Onions" value="1.5">Onions<br>
+                  <input class="selected-toppings" type="checkbox" name="Garlic" value=".75">Garlic<br>
+                </div>
+              </div>
+              <button class="btn btn-success" id="add-pizza" type="button" name="submit">Add Pizza</button>
+            </form>
+          </div>
         </div>
-        <div class="form-group">
-          <h3>Select Toppings</h3>
-          <form>
-            <div class="row">
-              <div class="col-xs-3">
-                <input class="selected-toppings" type="checkbox" name="Fancy Cheese" value="1">Fancy Cheese<br>
-                <input class="selected-toppings" type="checkbox" name="Pepperoni" value="1.75">Pepperoni<br>
-                <input class="selected-toppings" type="checkbox" name="Sausage" value="1.5">Sausage<br>
-                <input class="selected-toppings" type="checkbox" name="Ham" value="1.5">Ham<br>
-                <input class="selected-toppings" type="checkbox" name="Chicken" value="2">Chicken<br>
-                <input class="selected-toppings" type="checkbox" name="Steak" value="2.25">Steak<br>
-                <input class="selected-toppings" type="checkbox" name="Anchovies" value="2">Anchovies<br>
-              </div>
-              <div class="col-xs-3">
-                <input class="selected-toppings" type="checkbox" name="Olives" value="1">Olives<br>
-                <input class="selected-toppings" type="checkbox" name="Tomatoes" value="1.25">Tomatoes<br>
-                <input class="selected-toppings" type="checkbox" name="Bell Peppers" value="2">Bell Peppers<br>
-                <input class="selected-toppings" type="checkbox" name="Mushrooms" value="2">Mushrooms<br>
-                <input class="selected-toppings" type="checkbox" name="Spinach" value="1">Spinach<br>
-                <input class="selected-toppings" type="checkbox" name="Pineapples" value="2">Pineapples<br>
-                <input class="selected-toppings" type="checkbox" name="Onions" value="1.5">Onions<br>
-                <input class="selected-toppings" type="checkbox" name="Garlic" value=".75">Garlic<br>
-              </div>
-            </div>
-            <button class="btn btn-success" id="add-pizza" type="button" name="submit">Add Pizza</button>
-          </form>
+      </div>
+      <div class="col-sm-4">
+        <div class="container-fluid" id="order-container">
+          <div class="order-total">
+            <h5>Order Total $<span class="total-price"></span></h5>
+            <button type="button" name="submit-order" id="submit-order">Submit Order</button>
+          </div>
+          <div class="order-stream">
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-4">
-      <div class="container-fluid" id="order-container">
-        <div class="order-total">
-          <h5>Order Total $<span id="total-price"></span></h5>
-          <button type="button" name="submit-order" id="submit-order">Submit Order</button>
-        </div>
-        <div class="order-stream">
-        </div>
-      </div>
+    <div class="container" id="order-confirmation">
+      <h3>Amount due: $<span class="total-price"></span></h3>
+      <h3>Thanks for Ordering with us</h3>
     </div>
+    <div class="push"></div>
   </div>
-  <div class="container" id="order-confirmation">
-    <h3>Thanks for Ordering with us</h3>
-  </div>
-  <div class="push"></div>
-</div>
-<footer class="footer">
-</footer>
+  <footer class="footer">
+  </footer>
 </body>
 
 </html>

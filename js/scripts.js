@@ -36,9 +36,9 @@ Pizza.prototype.addToPrice = function(price) {
   this.price += price;
 }
 
-var myOrder = new Order();
 
 $(document).ready(function() {
+  var myOrder = new Order();
   $("#add-pizza").click(function() {
     var currentPizza = new Pizza();
     $('.selected-toppings:checkbox:checked').each(function() {
@@ -53,7 +53,7 @@ $(document).ready(function() {
     myOrder.numberOfPizzas.push(currentPizza);
     myOrder.calculateTotalPrice();
     $(".order-stream").append(currentPizza.appendStringFormat(sizeString));
-    $("#total-price").text(myOrder.totalPrice);
+    $(".total-price").text(myOrder.totalPrice);
     $("#order-container").show();
 
   })
