@@ -14,6 +14,10 @@ User can add toppings to the pizza
 User can add the pizza to the order
 User can add another pizza
 User can submit the order and get a total price
+
+## Github Pages
+_https://jdcamp.github.io/pizza-website/_
+
 ## Setup/Installation Requirements
 
 * _Clone repo_
