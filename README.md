@@ -22,11 +22,11 @@ User can submit the order and get a total price
 
 ## Known Bugs
 
-__
+_None Known_
 
 ## Support and contact details
 
-__
+_Support and bug reporting pending_
 
 ## Technologies Used
 
